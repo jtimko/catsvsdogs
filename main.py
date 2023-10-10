@@ -6,12 +6,9 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 # setting up directories
-dir_path = '/path/to/training/set'
-cats_dir = os.path.join(dir_path, 'cats')
-dogs_dir = os.path.join(dir_path, 'dogs')
-
+dir_path = '/Users/justintimko/Desktop/dataset/training_set'
 # path to picture to test
-test_img = '/path/to/testing/photo.jpg'
+test_img = '/Users/justintimko/Desktop/IMG_4279.jpg'
 
 train_ds = tf.keras.utils.image_dataset_from_directory(
     dir_path,
@@ -63,7 +60,7 @@ model = tf.keras.Sequential(
 
 model.compile(
     optimizer="Adam",
-    loss= tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
     metrics=["accuracy"],
 )
 
